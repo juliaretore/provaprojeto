@@ -1,0 +1,208 @@
+@font-face {
+    font-family: futura;
+    src: url(../fonts/LTe50152.woff);
+}
+
+
+
+/* Responsividade em fontes */
+html { font-size: calc(1em + 1vw); }
+
+
+/* Especificações Gerais */
+body{
+	background: url(../img/fundo.png) center center no-repeat;
+	background-size: 100% 100%;
+	font-family: arial;
+	text-align: center;
+	color: white;
+}
+
+
+
+/* Primeira tela */
+section.inicio h1{
+	height: 30vh;
+	line-height: 30vh;
+	font-size: 2em;
+	text-shadow: 0.1em 0.1em 0.05em #333;
+}
+section.inicio div.imagem{
+	height: 50vh;
+	line-height: 50vh;
+}
+section.inicio div.imagem img{
+	width: 98%;
+}
+section.inicio div.botao{
+	height: 20vh;
+	line-height: 20vh;
+}
+section.inicio div.botao button{
+	background: #404760;
+	padding: 2vw 7vw;
+	font-size: 2em;
+	color: white;
+	text-shadow: 0.1em 0.1em 0.05em #333;
+	border-radius: 8px;
+	border: none;
+	border-bottom: solid 3px #8A9EE3;
+}
+section.inicio{
+		display: none;
+
+}
+
+
+
+/* Segunda tela */
+section.tela2 h1{
+	height: 30vh;
+	line-height: 30vh;
+	font-size: 2em;
+} 
+
+section.tela2 div.imagem{
+	height: 50vh;
+	line-height: 50vh;
+}
+section.tela2 div.imagem img{
+	width: 80%;
+}
+section.tela2 div.temp{
+	height: 20vh;
+	line-height: 20vh;
+}
+section.tela2 div.temp h2{
+	font-size: 5em;
+	color:#CED2E8;
+	text-shadow: 0.1em 0.1em 0.05em #333;
+}
+section.tela2{
+	display: none;
+}
+
+
+
+/* Terceira tela */
+section.tela3{
+	display: none; 
+}
+section.tela3 ul{
+	height: 10vh;
+	line-height: 7.5vh;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 5vw;
+}
+section.tela3 ul li{
+	font-size: 0.8em;
+	padding-right: 2vw;
+}
+section.tela3 ul li.dobrar{
+	padding-right: 0;
+}
+section.tela3 ul li.dobrar img{
+	width: 75%;
+}
+section.tela3 ul div{
+	display: flex;
+}
+section.tela3 img.pause{
+	width: 10vw;
+	float:left; 
+	padding-top: 1vh;
+}
+section.tela3 div.im{
+	height: 60vh;
+	line-height: 60vh;
+}
+section.tela3 ul.imagem{
+	display: flex;
+	overflow: hidden;
+}
+section.tela3 ul.imagem li{
+	position: absolute;
+	margin-top: 25vw;
+	width: 100%;
+
+}
+section.tela3 ul.imagem li img{
+	width: 60%;
+}
+section.tela3 div.im ul li:nth-child(1){
+	left: -70vw;
+}
+section.tela3 div.im ul li:nth-child(2){
+	left: 0vw;
+}
+section.tela3 div.im ul li:nth-child(3){
+	left: 70vw;
+}
+section.tela3 div.im ul li:nth-child(4){
+	left: 140vw;
+}
+section.tela3 div.baixo div.mensagem{
+	margin: 6vw 2vw;
+	padding: 5vw;
+	background:  rgba(64, 71, 96, 0.6);
+	border-radius: 8px;
+}
+section.tela3 div.baixo{
+	height: 30vh;
+}
+section.tela3 div.baixo button{
+	background: #404760;
+	padding: 4vw 8vw;
+	margin: 1vw;
+	font-size: 2.2em;
+	color: white;
+	text-shadow: 0.1em 0.1em 0.05em #333;
+	border-radius: 8px;
+	border: none;
+	border-bottom: solid 3px #8A9EE3;
+
+}
+
+
+body div.pause{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5) );
+	width: 100vw;
+	height: 100vh;
+}
+
+
+
+body div.pause div{
+	width: 90vw;
+	margin-left: 5vw;
+	background: #91FFA6;
+	margin-top: 32.5vh;
+	height: 35vh;
+	color: #444444;
+	box-shadow: 0vw 1vw 10vw black;
+
+}
+
+
+
+/* Quarta tela */
+section.tela4 h1{
+	height: 30vh;
+	line-height: 30vh;
+	font-size: 2em;
+	text-shadow: 0.1em 0.1em 0.05em #333;
+}
+
+section.tela4 h2{
+	height: 30vh;
+	line-height: 30vh;
+	font-size: 2em;
+	text-shadow: 0.1em 0.1em 0.05em #333;
+}
+
+
