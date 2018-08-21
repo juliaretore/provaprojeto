@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Rush Back</title>
+  <title>Venda</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="author" content="">
@@ -10,247 +10,75 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
-<section class="inicio">
-	<h1>Rush Back</h1>
-
-	<div class="imagem">
-	<img src="img/inicio.png">
-	</div>
+<body>
+<section>
 	
-	<div class="botao">
-	<button class="jogar">Jogar</button>
-	</div>
-</section>
+			<legend>Cadastro de venda</legend>
 
-<section class="tela2">
-			<h1>Memorize em:</h1>
-				<div class="imagem">
-				<img class="animate" src="img/1.png">	
-				</div>
-				<div class="temp">	
-				<h2 class="tempo">3</h2>
-				</div>	
-		</section>
+			<label for="nome">Nome:</label>
+			<input type="text" class="nome" name="nome" id="nome" onfocus="this.style.backgroundColor='#F2F8FC'" onblur="this.style.backgroundColor='white'">
 
-
-<section class="tela3">
-
-		<img class="pause" src="img/pause.png">
-	<ul>
-		<div class="oi">
-			<li class="dobrar"><img class="1" src="img/cinza.png"></li>
-			<li class="dobrar"><img class="2" src="img/cinza.png"></li>
-			<li class="dobrar"><img class="3" src="img/cinza.png"></li>
-			<li class="dobrar"><img class="4" src="img/cinza.png"></li>
-		</div>
-		<li>x<span class="vezes">1</span></li>
-		<li>00:<span class="segundo">50</span></li>
-		<li>Score</li>
-		<li class="pontos">0</li>
-	</ul>
+			<label  for="produto">Produto:</label>
+			<select id="id_do_select" name="Produto"> 
+				<option>Selecione</option>
+				<option value="2.00" class="1">Esfirra</option>
+				<option value="3.00" class="2">Risoles</option>
+				<option value="4.00" class="3">Pastel</option>
+		</select>
+		<p class="lab">Preço: <span class="pre"></span></p>
 
 
+		<p class="lab">Pagamento:</p>
+		<label class="em-linha"> 
+			<input type="radio" name="pagamento" value="À vista"><span class="radio"></span>À vista
+		</label>
+		<label  class="em-linha"> 
+			<input type="radio" name="pagamento" value="À prazo"><span class="radio"></span>À prazo
+		</label>
 
-<div class="im">
-		<ul class="imagem">
-		<li><img class="1" src="img/1.png"></li>
-		<li><img class="2" src="img/2.png"></li>
-		<li><img class="3" src="img/3.png"></li>
 
-		</ul>
+		<input type="submit" name="confirmar" value="CONFIRMAR" class="botao">
 
+
+<h1>HISTÓRICO</h1>
+<div class="historico">
+<!-- <p class="hist">
+	<span class="nome"></span>
+	<span class="produto"></span>
+	<span class="preco"></span>
+	<span class="pagamento"></span>
+</p> -->
 </div>
-
-	<div class="baixo">
-
-	<div class="mensagem">
-		<p>Esse simbolo é igual ao anterior? </p>
-	</div>		
-	<ul>
-			<li><button class="nao" id="botao">NÃO</button></li>
-			<li><button class="sim" id="botao2">SIM</button></li>
-		</ul>
-	</div>
 </section>
-
-<section class="tela4">
-	<h1>Fim de Jogo</h1>
-	<H2> pontuação:</H2>
-	<p></p>
-	
-</section>
-
-<div class="pause">
-		<div>
-			<h3>JOGO PAUSADO</h3>
-
-			<button class="menu">Menu</button>
-			<p>x</p>
-			<button class="reiniciar">Reiniciar</button>
-		</div>
-	</div>
-
 
 <script src="js/jquery-3.3.1.min.js"></script>
 <script>
-		var jogar=$(".jogar");
-		var inicio=$(".inicio");
-		var tela2=$(".tela2");
-		var tela3=$(".tela3");
-		var tempoi=$(".tempo");
-		var segundo=$(".segundo");
-		var pause=$(".pause");
-		var imagem=$(".tela3 .im ul");
-		var nao=$(".nao");
-		var sim=$(".sim");
-		var pontos=$(".pontos");
-		var proximo=$(".tela3 button")
-		var aux=0;
-		var pausa=0;
-		var contagem=0;
-		var vezes=$(".vezes")
-		function gebi(identidade){
-	return document.getElementById(identidade);
-}
 
- 		jogar.on("click", function(){	
-		$(".tela2").show();
-		$(".inicio").hide();
-
-		pc=Math.floor((Math.random()*4)+1);
-		aux=pc;
-		$(".animate").attr("src", "img/"+pc+".png")
-
-		intervalo=setInterval(function(){
-		var tempo=tempoi.text();
-		if(tempo==0){
-				$(".tela2").hide();
-				$(".tela3").show();
-
-		$(".imagem .1").attr("src", "img/"+aux+".png")
-		pc=Math.floor((Math.random()*4)+1);
-		$(".imagem .2").attr("src", "img/"+pc+".png")
-		pc=Math.floor((Math.random()*4)+1);
-		$(".imagem .3").attr("src", "img/"+pc+".png")
+var valor;
+var primeiro=0;
+$('#id_do_select').on('change', function() {
+	valor = $('#id_do_select').val();
+	$(".pre").text(valor);
+})
 
 
-		tempoi.text(parseInt(3));
-		clearInterval(intervalo);
+	var botao=$(".botao");
+	botao.on("click", function(){
+	var radio = $("input[name='pagamento']:checked").val();
+	var texto = $('#id_do_select :selected').text();
 
-		intervalo2=setInterval(function(){
-		var contagem_segundo_atual=segundo.text();
-		if(contagem_segundo_atual==00){
-				clearInterval(intervalo2);
 
-			}else if(contagem_segundo_atual!=0){
-				segundo.text(parseInt(contagem_segundo_atual)-1);
-			}else{			
-			}			
-	}, 1000);
-
-			}else if(tempo!=0){
-				tempoi.text(parseInt(tempo)-1);	
-			}
-	}, 100);
-	});
+	  $("div.historico").append("<p class='hist'> <span class='nome'>Nome: "+$('.nome').val()+"</span><span class='produto'> Produto: "+texto+"</span> <span class='preco'> Preço: "+valor+"</span> <span class='pagamento'>  Pagamento: "+radio+"</span> </p>");
 
 
 
 
-	pause.on("click", function(){
-		$(".pause").show();
-		if (pausa==0){
-			$(".pause").attr("src", "img/play.png")
-			pausa=1;
-			clearInterval(intervalo2);
+	document.getElementById('nome').value="";
+	$('.pre').text("");
+	$('#id_do_select').prop('selectedIndex',0);
+	$('input[name="pagamento"]').prop('checked', false);
 
-		}else if (pausa==1){
-			$(".pause").attr("src", "img/pause.png")
-			pausa=0;
-			intervalo2=setInterval(function(){
-			var contagem_segundo_atual=segundo.text();
-			if(contagem_segundo_atual==00){
-				clearInterval(intervalo2);
-			}else if(contagem_segundo_atual!=0){
-				segundo.text(parseInt(contagem_segundo_atual)-1);
-			}else{			
-			}			
-	}, 1000);
-
-		}
-	});
-
-
-	nao.on("click", function(){
-
-
-
-	var figuraatual=$(".tela3 .imagem img").eq(1).attr("src")
-	var figuraanterior=$(".tela3 .imagem img").eq(0).attr("src")
-		if(figuraatual!=figuraanterior){
-			pontos.text(parseInt(pontos.text())+50*parseInt(vezes.text()));
-			contagem+=1;
-			$(".oi ."+contagem).attr("src", "img/laranja.png")
-			if(contagem==4){
-
-				vezes.text(parseInt(vezes.text())+1);
-				contagem=0;
-			intervalo4=setTimeout(function(){	
-			$(".oi img").attr("src", "img/cinza.png")
-			}, 300);
-			
-		}	
-	}
-
-	});
-
-	sim.on("click", function(){
-	var figuraatual=$(".tela3 .imagem img").eq(1).attr("src")
-	var figuraanterior=$(".tela3 .imagem img").eq(0).attr("src")
-		if(figuraatual==figuraanterior){
-			pontos.text(parseInt(pontos.text())+50*parseInt(vezes.text()));
-			contagem+=1;
-			$(".oi ."+contagem).attr("src", "img/laranja.png")
-			if(contagem==4){
-
-				vezes.text(parseInt(vezes.text())+1);
-				contagem=0;
-			intervalo4=setTimeout(function(){	
-			$(".oi img").attr("src", "img/cinza.png")
-			}, 300);
-
-			
-		}	
-	}
-
-	});
-
-	proximo.on("click", function(){
-
-	gebi("botao").disabled = true;
-	gebi("botao2").disabled = true;
-
-	intervalo4=setTimeout(function(){	
-	gebi("botao").disabled = false;
-	gebi("botao2").disabled = false;
-			}, 500);
-
-
-
-		pc=Math.floor((Math.random()*4)+1);
-		imagem.append("<li><img class='4' src='img/"+pc+".png'></li>");
-
-		$(".tela3 .im ul li").eq(0).animate({left:"-=70vw"},500);
-		$(".tela3 .im ul li").eq(1).animate({left:"-=70vw"},500);
-		$(".tela3 .im ul li").eq(2).animate({left:"-=70vw"},500);
-		$(".tela3 .im ul li").eq(3).animate({left:"-=70vw"},500);
-
-		intervalo3=setTimeout(function(){	
-		$(".tela3 .imagem li").eq(0).remove();
-	}, 500);
-
-
-	});
+});
 
 </script>
 </body>
